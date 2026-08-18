@@ -3,9 +3,10 @@
 import { useEffect, useRef, useState } from "react"
 import { animate, motion, useInView } from "motion/react"
 import { cn } from "@/lib/utils"
+import { EASE_OUT, viewportOnce } from "@/lib/motion"
 
 export function Eyebrow({ children, className }: { children: React.ReactNode; className?: string }) {
-  return <p className={cn("eyebrow", className)}>{children}</p>
+  return <p className={cn("eyebrow font-semibold", className)}>{children}</p>
 }
 
 const chipTones: Record<string, { className: string; style?: React.CSSProperties }> = {
@@ -84,8 +85,8 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
+      viewport={viewportOnce}
+      transition={{ duration: 0.5, delay, ease: EASE_OUT }}
     >
       {children}
     </motion.div>
@@ -121,7 +122,7 @@ export function CountUp({
   }, [inView, value, duration, reduced])
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={cn("tabular-nums", className)}>
       {prefix}
       {display.toLocaleString()}
       {suffix}

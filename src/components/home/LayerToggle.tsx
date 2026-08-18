@@ -3,6 +3,7 @@
 import { motion } from "motion/react"
 import { Bot, User } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { springKnob } from "@/lib/motion"
 import { useApp, type Layer } from "@/components/providers/AppProviders"
 
 const options: Array<{ value: Layer; label: string; icon: typeof User; sub: string }> = [
@@ -22,7 +23,7 @@ export function LayerToggle({ size = "lg" }: { size?: "sm" | "lg" }) {
       role="radiogroup"
       aria-label="Which layer are you buying for?"
       className={cn(
-        "relative inline-flex rounded-full border border-line-strong bg-sunken p-1.5",
+        "relative inline-flex rounded-full border border-line-strong bg-raised p-1.5",
         size === "lg" ? "gap-1.5" : "gap-1"
       )}
     >
@@ -44,13 +45,13 @@ export function LayerToggle({ size = "lg" }: { size?: "sm" | "lg" }) {
             {active && (
               <motion.span
                 layoutId="hero-layer-knob"
-                className="absolute inset-0 z-0 rounded-full bg-accent glow-accent"
-                transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                className="absolute inset-0 z-0 rounded-full bg-accent shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
+                transition={springKnob}
               />
             )}
             <Icon className="relative z-10 size-5" strokeWidth={2.2} aria-hidden />
             <span className="relative z-10 flex flex-col">
-              <span className={cn("font-semibold tracking-tight", size === "lg" ? "text-base" : "text-sm")}>
+              <span className={cn("font-semibold tracking-tight", size === "lg" ? "text-[0.8125rem]" : "text-xs")}>
                 {opt.label}
               </span>
               <span

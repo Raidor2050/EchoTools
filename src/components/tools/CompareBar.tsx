@@ -3,8 +3,9 @@
 import Link from "next/link"
 import { AnimatePresence, motion } from "motion/react"
 import { ArrowRight, X } from "lucide-react"
-import { useApp } from "@/components/providers/AppProviders"
+import { useApp, MAX_COMPARE } from "@/components/providers/AppProviders"
 import { allTools } from "@/lib/data"
+import { EASE_IN, EASE_OUT } from "@/lib/motion"
 
 /**
  * Sticky comparison tray. Appears once 2+ tools are selected; links to
@@ -13,22 +14,20 @@ import { allTools } from "@/lib/data"
 export function CompareBar() {
   const { compare, toggleCompare, clearCompare } = useApp()
 
-  if (compare.length === 0) return null
-
   const selected = compare
     .map((slug) => allTools.find((t) => t.slug === slug))
     .filter(Boolean)
 
   return (
     <AnimatePresence>
-      <motion.div
-        initial={{ y: 80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 80, opacity: 0 }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed inset-x-0 bottom-4 z-40 flex justify-center px-4"
-      >
-        <div className="flex w-full max-w-2xl items-center gap-3 rounded-xl border border-line-strong bg-overlay/95 p-3 shadow-[0_8px_40px_-8px_rgba(0,0,0,0.6)] backdrop-blur">
+      {compare.length > 0 && (
+        <motion.div
+          initial={{ y: 80, opacity: 0 }}
+          animate={{ y: 0, opacity: 1, transition: { duration: 0.28, ease: EASE_OUT } }}
+          exit={{ y: 80, opacity: 0, transition: { duration: 0.2, ease: EASE_IN } }}
+          className="fixed inset-x-0 bottom-4 z-40 flex justify-center px-4"
+        >
+          <div className="flex w-full max-w-2xl items-center gap-3 rounded-2xl bg-overlay/95 p-3 shadow-[0_8px_24px_rgba(0,0,0,0.6),0_2px_6px_rgba(0,0,0,0.45)] ring-1 ring-line-strong backdrop-blur">
           <div className="flex min-w-0 flex-1 items-center gap-2">
             {selected.map(
               (tool) =>
@@ -49,8 +48,8 @@ export function CompareBar() {
                   </span>
                 )
             )}
-            <span className="font-mono text-[0.625rem] uppercase tracking-wider text-faint">
-              {compare.length}/4
+            <span className="font-mono text-[0.625rem] uppercase tracking-wider text-faint tabular-nums">
+              {compare.length}/{MAX_COMPARE}
             </span>
           </div>
           <button
@@ -67,8 +66,9 @@ export function CompareBar() {
             Compare
             <ArrowRight className="size-3.5" />
           </Link>
-        </div>
-      </motion.div>
+          </div>
+        </motion.div>
+      )}
     </AnimatePresence>
   )
 }

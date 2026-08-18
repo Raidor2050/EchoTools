@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "motion/react"
 import { Menu, X, Search } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { allTools } from "@/lib/data"
+import { springKnob } from "@/lib/motion"
 import { Logo } from "@/components/ui/Logo"
 import { useApp, type Layer } from "@/components/providers/AppProviders"
 
@@ -27,7 +28,7 @@ function LayerSwitch({ compact = false }: { compact?: boolean }) {
     <div
       role="radiogroup"
       aria-label="Software layer"
-      className={cn("relative flex rounded-lg border border-line-subtle bg-sunken p-0.5", compact && "scale-90 origin-right")}
+      className={cn("relative flex rounded-lg border border-line-strong bg-raised p-0.5", compact && "scale-90 origin-right")}
     >
       {options.map((opt) => (
         <button
@@ -44,8 +45,8 @@ function LayerSwitch({ compact = false }: { compact?: boolean }) {
           {layer === opt.value && (
             <motion.span
               layoutId="header-layer-knob"
-              className="absolute inset-0 -z-10 rounded-md bg-accent"
-              transition={{ type: "spring", stiffness: 500, damping: 35 }}
+              className="absolute inset-0 -z-10 rounded-md bg-accent shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
+              transition={springKnob}
             />
           )}
           {opt.label}
@@ -90,10 +91,10 @@ export function Header() {
     <header
       className={cn(
         "sticky top-0 z-50 border-b transition-colors duration-300",
-        scrolled ? "border-line-subtle bg-bg/85 backdrop-blur-md" : "border-transparent bg-transparent"
+        scrolled ? "border-line-subtle bg-bg/70 backdrop-blur-xl" : "border-transparent bg-transparent"
       )}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <Logo />
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
@@ -102,10 +103,10 @@ export function Header() {
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors",
+                "rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
                 pathname === link.href || (link.href !== "/tools" && pathname.startsWith(link.href))
-                  ? "text-fg"
-                  : "text-muted hover:text-fg"
+                  ? "text-accent underline decoration-accent/70 underline-offset-4"
+                  : "text-muted hover:text-accent hover:underline hover:underline-offset-4"
               )}
             >
               {link.label}
@@ -148,7 +149,7 @@ export function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-line-subtle bg-bg md:hidden"
+            className="overflow-hidden border-t border-line-subtle bg-bg/95 backdrop-blur-xl md:hidden"
           >
             <nav className="flex flex-col gap-1 px-4 py-4" aria-label="Mobile">
               {navLinks.map((link) => (

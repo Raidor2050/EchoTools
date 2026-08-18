@@ -40,8 +40,9 @@ import {
 import { categoriesFor } from "@/lib/categories"
 import { toolsByCategory } from "@/lib/data"
 import { useApp } from "@/components/providers/AppProviders"
-import { SectionHeader } from "@/components/ui/primitives"
+import { Reveal, SectionHeader } from "@/components/ui/primitives"
 import { cn } from "@/lib/utils"
+import { EASE_IN, EASE_OUT } from "@/lib/motion"
 
 const iconMap: Record<string, LucideIcon> = {
   megaphone: Megaphone,
@@ -82,12 +83,12 @@ const copy = {
   human: {
     eyebrow: "By category",
     title: "Everything a human team needs",
-    desc: "Twenty-two categories covering the modern software stack — searchable, comparable, and ranked by usefulness.",
+    desc: "Twenty-two categories covering the modern software stack: searchable, comparable, and ranked by usefulness.",
   },
   agent: {
     eyebrow: "By category",
     title: "Everything an agent stack needs",
-    desc: "Ten categories of agent infrastructure — frameworks, memory, extraction, and observability.",
+    desc: "Ten categories of agent infrastructure: frameworks, memory, extraction, and observability.",
   },
 }
 
@@ -97,15 +98,17 @@ export function CategoryExplorer() {
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6" aria-label="Browse by category">
-      <SectionHeader {...copy[layer]} />
+      <Reveal>
+        <SectionHeader {...copy[layer]} />
+      </Reveal>
 
       <AnimatePresence mode="wait" initial={false}>
         <motion.ul
           key={layer}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.3 }}
+          exit={{ opacity: 0, y: -8, transition: { duration: 0.18, ease: EASE_IN } }}
+          transition={{ duration: 0.3, ease: EASE_OUT }}
           className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
         >
           {cats.map((cat, i) => {
@@ -116,17 +119,17 @@ export function CategoryExplorer() {
                 key={cat.slug}
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35, delay: Math.min(i, 12) * 0.04, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.4, delay: Math.min(i, 8) * 0.04, ease: EASE_OUT }}
               >
                 <Link
                   href={`/categories/${cat.slug}`}
-                  className="group flex h-full flex-col gap-3 rounded-xl border border-line-subtle bg-surface p-4 transition-colors hover:border-accent/40 hover:bg-raised"
+                  className="group flex h-full flex-col gap-3 rounded-xl border border-line-subtle bg-surface p-4 transition-colors hover:border-accent/40"
                 >
                   <div className="flex items-center justify-between">
                     <span className="flex size-9 items-center justify-center rounded-lg border border-line-subtle bg-sunken text-muted transition-colors group-hover:border-accent/40 group-hover:text-accent">
                       <Icon className="size-4" aria-hidden />
                     </span>
-                    <span className="font-mono text-[0.625rem] uppercase tracking-wider text-faint">
+                    <span className="font-mono text-[0.625rem] uppercase tracking-wider text-faint tabular-nums">
                       {count} tools
                     </span>
                   </div>

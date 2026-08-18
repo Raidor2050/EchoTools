@@ -7,6 +7,7 @@ import { ArrowRight, CornerDownLeft, Search } from "lucide-react"
 import { allTools } from "@/lib/data"
 import { searchTool } from "@/lib/utils"
 import { cn } from "@/lib/utils"
+import { EASE_IN, EASE_OUT } from "@/lib/motion"
 
 /**
  * In-app hero search. Typing shows live results on the page (no
@@ -31,10 +32,6 @@ export function HeroSearch() {
   const total = useMemo(() => {
     if (!trimmed) return 0
     return allTools.filter((t) => searchTool(t, trimmed)).length
-  }, [trimmed])
-
-  useEffect(() => {
-    setActiveIndex(0)
   }, [trimmed])
 
   useEffect(() => {
@@ -78,7 +75,7 @@ export function HeroSearch() {
 
   return (
     <div ref={containerRef} className="relative w-full">
-      <div className="flex items-center gap-3 rounded-xl border border-line-strong bg-surface px-4 py-3 transition-colors focus-within:border-accent/60">
+      <div className="flex items-center gap-3 rounded-xl border border-line-strong bg-surface px-4 py-3 transition-colors focus-within:border-accent/60 focus-within:ring-2 focus-within:ring-accent/60 focus-within:ring-offset-2 focus-within:ring-offset-bg">
         <Search className="size-4 shrink-0 text-faint" aria-hidden />
         <input
           role="combobox"
@@ -92,6 +89,7 @@ export function HeroSearch() {
           value={query}
           onChange={(e) => {
             setQuery(e.target.value)
+            setActiveIndex(0)
             setOpen(true)
           }}
           onFocus={() => setOpen(true)}
@@ -108,9 +106,14 @@ export function HeroSearch() {
           <motion.div
             initial={{ opacity: 0, y: -6, scale: 0.99 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -6, scale: 0.99 }}
-            transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-x-0 top-full z-30 mt-2 overflow-hidden rounded-xl border border-line-strong bg-overlay text-left shadow-[0_24px_60px_-16px_rgba(0,0,0,0.7)]"
+            exit={{
+              opacity: 0,
+              y: -6,
+              scale: 0.99,
+              transition: { duration: 0.12, ease: EASE_IN },
+            }}
+            transition={{ duration: 0.18, ease: EASE_OUT }}
+            className="absolute inset-x-0 top-full z-30 mt-2 overflow-hidden rounded-xl border border-line-strong bg-overlay text-left shadow-[0_8px_24px_rgba(0,0,0,0.6),0_2px_6px_rgba(0,0,0,0.45)]"
           >
             <ul id="hero-search-listbox" role="listbox" aria-label="Search results" className="p-1.5">
               {results.length === 0 ? (
@@ -130,16 +133,16 @@ export function HeroSearch() {
                     >
                       <span className="flex min-w-0 items-center gap-2.5">
                         <span className="truncate font-medium text-fg">{tool.name}</span>
-                        <span className="truncate font-mono text-[0.625rem] uppercase tracking-wider text-faint">
+                        <span className="truncate font-mono text-[0.6875rem] uppercase tracking-wider text-faint tabular-nums">
                           {tool.useCase}
                         </span>
                       </span>
                       <span
                         className={cn(
-                          "shrink-0 rounded-full border px-2 py-0.5 font-mono text-[0.625rem] uppercase tracking-wider",
+                          "shrink-0 rounded-full border px-2 py-0.5 font-mono text-[0.6875rem] uppercase tracking-wider",
                           tool.type === "human"
-                            ? "border-[#e8a94e]/40 bg-[oklch(20%_0.05_85)] text-[#f0b95c]"
-                            : "border-[#8f7bff]/40 bg-[oklch(20%_0.06_295)] text-[#b9a6ff]"
+                            ? "border-human/40 text-human"
+                            : "border-agent/40 text-agent"
                         )}
                       >
                         {tool.type}
@@ -157,7 +160,7 @@ export function HeroSearch() {
               <span>
                 {total > 0 ? (
                   <>
-                    Search all <span className="text-fg">{total}</span> result{total === 1 ? "" : "s"} in the directory
+                    Search all <span className="text-fg tabular-nums">{total}</span> result{total === 1 ? "" : "s"} in the directory
                   </>
                 ) : (
                   "Open the directory"

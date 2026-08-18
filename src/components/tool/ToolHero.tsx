@@ -8,6 +8,7 @@ import { cn, layerLabel, pricingLabel } from "@/lib/utils"
 import { useApp } from "@/components/providers/AppProviders"
 import { ToolLogo } from "@/components/tools/ToolLogo"
 import { Chip } from "@/components/ui/primitives"
+import { EASE_OUT } from "@/lib/motion"
 
 function visitHref(tool: Tool): string {
   return tool.affiliate.available && tool.affiliate.trackingUrl
@@ -54,14 +55,14 @@ export function ToolHero({ tool }: { tool: Tool }) {
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.5, ease: EASE_OUT }}
             className="max-w-3xl"
           >
             <div className="flex items-center gap-4">
-              <ToolLogo slug={tool.slug} name={tool.name} type={tool.type} className="size-14 rounded-xl text-lg" />
+              <ToolLogo slug={tool.slug} name={tool.name} type={tool.type} size="lg" className="size-16 rounded-2xl text-lg" />
               <div>
-                <h1 className="text-hero font-semibold tracking-tight text-fg">{tool.name}</h1>
-                <p className="mt-1 text-sm text-muted">{tool.useCase}</p>
+                <h1 className="text-h2 font-semibold text-fg">{tool.name}</h1>
+                <p className="mt-1 text-[15px] text-muted">{tool.useCase}</p>
               </div>
             </div>
 
@@ -81,7 +82,7 @@ export function ToolHero({ tool }: { tool: Tool }) {
               {tool.long ?? tool.description}
             </p>
 
-            <p className="mt-3 font-mono text-[0.625rem] uppercase tracking-wider text-faint">
+            <p className="mt-3 font-mono text-[0.6875rem] uppercase tracking-wider text-faint">
               Best for: {tool.audience}
             </p>
           </motion.div>
@@ -89,8 +90,8 @@ export function ToolHero({ tool }: { tool: Tool }) {
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full shrink-0 lg:w-72"
+            transition={{ duration: 0.5, delay: 0.08, ease: EASE_OUT }}
+            className="w-full shrink-0 lg:w-80"
           >
             <div className="rounded-xl border border-line-strong bg-surface p-5">
               <p className="eyebrow mb-2">Pricing</p>
@@ -98,21 +99,23 @@ export function ToolHero({ tool }: { tool: Tool }) {
               <p className="mt-1 text-xs text-faint">{tool.pricing}</p>
 
               <div className="mt-5 flex flex-col gap-2.5">
-                <a
+                <motion.a
                   href={visitHref(tool)}
                   rel={visitRel(tool)}
                   target="_blank"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-bg transition-colors hover:bg-accent-strong"
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ duration: 0.15, ease: EASE_OUT }}
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-[10px] bg-fg px-4 text-sm font-semibold text-bg transition-colors hover:bg-fg/90"
                 >
                   Visit {tool.name}
                   <ArrowUpRight className="size-4" aria-hidden />
-                </a>
+                </motion.a>
                 <button
                   type="button"
                   aria-pressed={inCompare}
                   onClick={() => toggleCompare(tool.slug)}
                   className={cn(
-                    "inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-medium transition-colors",
+                    "inline-flex h-10 items-center justify-center gap-2 rounded-[10px] border px-4 text-sm font-medium transition-colors",
                     inCompare
                       ? "border-accent/50 bg-accent-soft text-accent"
                       : "border-line-strong text-fg hover:border-accent/50"
@@ -141,7 +144,7 @@ export function ToolHero({ tool }: { tool: Tool }) {
           </div>
           <div className="bg-surface px-4 py-4">
             <dt className="font-mono text-[0.625rem] uppercase tracking-wider text-faint">Integrations</dt>
-            <dd className="mt-1 text-sm text-fg">{tool.integrations.length}</dd>
+            <dd className="mt-1 text-sm tabular-nums text-fg">{tool.integrations.length}</dd>
           </div>
           <div className="bg-surface px-4 py-4">
             <dt className="font-mono text-[0.625rem] uppercase tracking-wider text-faint">API</dt>

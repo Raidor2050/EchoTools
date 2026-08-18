@@ -1,12 +1,13 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { AnimatePresence } from "motion/react"
+import { AnimatePresence, motion } from "motion/react"
 import { ArrowUpDown } from "lucide-react"
 import type { Tool } from "@/lib/types"
 import { sortTools } from "@/lib/utils"
 import { ToolCard } from "@/components/tools/ToolCard"
 import { Eyebrow } from "@/components/ui/primitives"
+import { fadeUp, listItem, stagger, viewportOnce } from "@/lib/motion"
 
 const sorts = [
   { value: "featured", label: "Featured" },
@@ -32,10 +33,18 @@ export function LayerArchive({
 
   return (
     <div>
-      <div className="border-b border-line-subtle bg-sunken/40">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+        variants={stagger}
+        className="border-b border-line-subtle bg-sunken/40"
+      >
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-          <Eyebrow className="mb-3">{eyebrow}</Eyebrow>
-          <div className="flex flex-wrap items-end justify-between gap-4">
+          <motion.div variants={listItem}>
+            <Eyebrow className="mb-3">{eyebrow}</Eyebrow>
+          </motion.div>
+          <motion.div variants={listItem} className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <h1 className="text-hero font-semibold text-fg">{title}</h1>
               <p className="mt-3 max-w-2xl text-body text-muted">{description}</p>
@@ -46,7 +55,7 @@ export function LayerArchive({
                 value={sort}
                 onChange={(e) => setSort(e.target.value)}
                 aria-label="Sort tools"
-                className="appearance-none rounded-lg border border-line-subtle bg-surface py-2 pl-8 pr-8 text-xs text-muted outline-none transition-colors hover:border-line-strong"
+                className="appearance-none rounded-xl border border-line-subtle bg-surface py-2 pl-8 pr-8 text-xs text-muted outline-none transition-colors hover:border-line-strong"
               >
                 {sorts.map((s) => (
                   <option key={s.value} value={s.value} className="bg-overlay text-fg">
@@ -55,17 +64,23 @@ export function LayerArchive({
                 ))}
               </select>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
-        <p className="mb-6 font-mono text-[0.625rem] uppercase tracking-wider text-faint">
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="mb-6 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-muted tabular-nums"
+        >
           {tools.length} tools
-        </p>
+        </motion.p>
         <AnimatePresence mode="popLayout" initial={false}>
           <ul key={sort} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {sorted.map((tool, i) => (
-              <ToolCard key={tool.slug} tool={tool} index={i} />
+            {sorted.map((tool) => (
+              <ToolCard key={tool.slug} tool={tool}  />
             ))}
           </ul>
         </AnimatePresence>

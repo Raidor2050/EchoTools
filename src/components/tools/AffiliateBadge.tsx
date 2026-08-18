@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 /**
  * Affiliate availability indicator. Never a link itself — the card CTA
  * carries the actual tracking URL. Verified recurring programs are
- * highlighted; everything else stays quiet.
+ * highlighted with green-tint text; everything else stays quiet.
  */
 export function AffiliateBadge({ tool, className }: { tool: Tool; className?: string }) {
   const a = tool.affiliate
@@ -13,12 +13,11 @@ export function AffiliateBadge({ tool, className }: { tool: Tool; className?: st
     return (
       <span
         className={cn(
-          "inline-flex items-center gap-1 rounded border border-accent/35 bg-accent-soft px-1.5 py-0.5 font-mono text-[0.625rem] uppercase tracking-wider text-accent",
+          "inline-flex items-center rounded-full border border-emerald-500/30 px-2.5 py-1 text-[0.6875rem] font-medium text-emerald-400",
           className
         )}
         title={a.commission ?? "Recurring affiliate program"}
       >
-        <span className="size-1.5 rounded-full bg-accent animate-pulse-dot" aria-hidden />
         Recurring
       </span>
     )
@@ -27,7 +26,7 @@ export function AffiliateBadge({ tool, className }: { tool: Tool; className?: st
     return (
       <span
         className={cn(
-          "inline-flex items-center rounded border border-line-subtle bg-surface px-1.5 py-0.5 font-mono text-[0.625rem] uppercase tracking-wider text-faint",
+          "inline-flex items-center rounded-full border border-line px-2.5 py-1 text-[0.6875rem] font-medium text-muted",
           className
         )}
         title={a.commission ?? "Affiliate program (one-time)"}
@@ -39,7 +38,7 @@ export function AffiliateBadge({ tool, className }: { tool: Tool; className?: st
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded border border-line-subtle bg-surface px-1.5 py-0.5 font-mono text-[0.625rem] uppercase tracking-wider text-faint",
+        "inline-flex items-center rounded-full border border-line px-2.5 py-1 text-[0.6875rem] font-medium text-muted",
         className
       )}
       title={a.commission ?? "Affiliate program (terms unverified)"}

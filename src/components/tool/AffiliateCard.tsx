@@ -32,7 +32,7 @@ export function AffiliateCard({ tool }: { tool: Tool }) {
   ]
 
   return (
-    <aside className="rounded-xl border border-accent/30 bg-accent-soft/40 p-5">
+    <aside className="rounded-xl border border-accent/25 bg-accent-soft/30 p-5">
       <div className="flex items-center justify-between gap-3">
         <h2 className="text-sm font-semibold text-fg">How this link works</h2>
         <span className="inline-flex items-center gap-1 font-mono text-[0.625rem] uppercase tracking-wider text-accent">
@@ -53,7 +53,7 @@ export function AffiliateCard({ tool }: { tool: Tool }) {
               <row.icon className="mr-1.5 inline size-3" aria-hidden />
               {row.label}
             </dt>
-            <dd className="mt-1 text-sm font-medium text-fg">{row.value}</dd>
+            <dd className="mt-1 text-sm font-medium tabular-nums text-fg">{row.value}</dd>
           </div>
         ))}
       </dl>

@@ -10,6 +10,7 @@ import { cn, fmtPrice, layerLabel, pricingLabel } from "@/lib/utils"
 import { useApp } from "@/components/providers/AppProviders"
 import { ToolLogo } from "@/components/tools/ToolLogo"
 import { Eyebrow } from "@/components/ui/primitives"
+import { EASE_IN, EASE_OUT, fadeUp, stagger, viewportOnce } from "@/lib/motion"
 import type { Tool } from "@/lib/types"
 
 interface Row {
@@ -20,9 +21,9 @@ interface Row {
 
 function Bool({ value }: { value: boolean }) {
   return value ? (
-    <span className="inline-flex text-accent"><Check className="size-4" aria-hidden /></span>
+    <span className="inline-flex text-muted"><Check className="size-3.5" aria-hidden /></span>
   ) : (
-    <span className="inline-flex text-faint"><Minus className="size-4" aria-hidden /></span>
+    <span className="inline-flex text-faint"><Minus className="size-3.5" aria-hidden /></span>
   )
 }
 
@@ -45,13 +46,13 @@ function Cta({ tool }: { tool: Tool }) {
 
 const rows: Row[] = [
   { key: "layer", label: "Layer", render: (t) => <span className="font-mono text-xs uppercase tracking-wider text-muted">{layerLabel(t.type)}</span> },
-  { key: "useCase", label: "Use case", render: (t) => <span className="text-sm text-muted">{t.useCase}</span> },
-  { key: "price", label: "Pricing", render: (t) => <span className="text-sm font-medium text-fg">{pricingLabel(t)}</span> },
+  { key: "useCase", label: "Use case", render: (t) => <span className="text-xs text-muted">{t.useCase}</span> },
+  { key: "price", label: "Pricing", render: (t) => <span className="text-sm font-medium tabular-nums text-fg">{pricingLabel(t)}</span> },
   { key: "free", label: "Free tier", render: (t) => <Bool value={t.freeTier} /> },
   { key: "api", label: "API", render: (t) => <Bool value={t.api} /> },
   { key: "ai", label: "AI features", render: (t) => <Bool value={t.ai} /> },
   { key: "platforms", label: "Platforms", render: (t) => <span className="text-xs text-muted">{t.platforms.join(", ")}</span> },
-  { key: "integrations", label: "Integrations", render: (t) => <span className="text-sm text-fg">{t.integrations.length}</span> },
+  { key: "integrations", label: "Integrations", render: (t) => <span className="text-sm font-medium tabular-nums text-fg">{t.integrations.length}</span> },
   {
     key: "affiliate",
     label: "Affiliate",
@@ -111,31 +112,39 @@ export function CompareView() {
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
-      <Eyebrow className="mb-3">Comparison</Eyebrow>
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <h1 className="text-hero font-semibold text-fg">Side by side.</h1>
-        <div className="flex items-center gap-3">
-          <label className="inline-flex cursor-pointer items-center gap-2 text-xs text-muted">
-            <input
-              type="checkbox"
-              checked={diffOnly}
-              onChange={(e) => setDiffOnly(e.target.checked)}
-              className="size-3.5 accent-[oklch(var(--accent-l)_var(--accent-c)_var(--accent-h))]"
-            />
-            Differences only
-          </label>
-          <button type="button" onClick={clearCompare} className="text-xs text-faint hover:text-fg">
-            Clear
-          </button>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOnce}
+      variants={stagger}
+      className="mx-auto max-w-7xl px-4 py-10 sm:px-6"
+    >
+      <motion.div variants={fadeUp}>
+        <Eyebrow className="mb-3">Comparison</Eyebrow>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h1 className="text-hero font-semibold text-fg">Side by side.</h1>
+          <div className="flex items-center gap-3">
+            <label className="inline-flex cursor-pointer items-center gap-2 text-xs text-muted">
+              <input
+                type="checkbox"
+                checked={diffOnly}
+                onChange={(e) => setDiffOnly(e.target.checked)}
+                className="size-3.5 accent-[oklch(var(--accent-l)_var(--accent-c)_var(--accent-h))]"
+              />
+              Differences only
+            </label>
+            <button type="button" onClick={clearCompare} className="text-xs text-faint hover:text-fg">
+              Clear
+            </button>
+          </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="mt-8 overflow-x-auto rounded-xl border border-line-subtle">
+      <motion.div variants={fadeUp} className="mt-8 overflow-x-auto rounded-xl border border-line-subtle">
         <table className="w-full min-w-[46rem] border-collapse text-left">
-          <thead>
-            <tr className="border-b border-line-subtle bg-surface">
-              <th scope="col" className="w-40 px-4 py-4 font-mono text-[0.625rem] uppercase tracking-wider text-faint">
+          <thead className="sticky top-0 z-10">
+            <tr className="border-b border-line bg-raised">
+              <th scope="col" className="w-40 px-4 py-4 font-mono text-[0.625rem] uppercase tracking-wider text-faint tabular-nums">
                 {tools.length} tools
               </th>
               {tools.map((tool) => (
@@ -168,11 +177,9 @@ export function CompareView() {
               {visibleRows.map((row) => (
                 <motion.tr
                   key={row.key}
-                  layout
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.25 }}
+                  animate={{ opacity: 1, transition: { duration: 0.25, ease: EASE_OUT } }}
+                  exit={{ opacity: 0, transition: { duration: 0.16, ease: EASE_IN } }}
                   className="border-b border-line-subtle last:border-0 odd:bg-sunken/30"
                 >
                   <th scope="row" className="px-4 py-3.5 font-mono text-[0.625rem] uppercase tracking-wider text-faint">
@@ -198,9 +205,9 @@ export function CompareView() {
             </tr>
           </tbody>
         </table>
-      </div>
+      </motion.div>
 
-      <div className="mt-6 rounded-xl border border-accent/30 bg-accent-soft/40 p-5">
+      <motion.div variants={fadeUp} className="mt-6 rounded-xl border border-line bg-surface p-5">
         <p className="eyebrow mb-2 text-accent">Verdict</p>
         <p className="text-sm leading-relaxed text-muted">
           {tools.filter((t) => t.affiliate.available && t.affiliate.recurring === true).length} of{" "}
@@ -209,11 +216,11 @@ export function CompareView() {
           economics as a bonus, not a factor.
         </p>
         {allTools.length > 0 && (
-          <p className="mt-3 font-mono text-[0.625rem] uppercase tracking-wider text-faint">
+          <p className="mt-3 font-mono text-[0.625rem] uppercase tracking-wider text-faint tabular-nums">
             Cheapest starting price: {fmtPrice(Math.min(...tools.map((t) => t.plans.filter((p) => p.price > 0).reduce((m, p) => Math.min(m, p.price), Infinity))))}
           </p>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }

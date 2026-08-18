@@ -20,7 +20,7 @@ const pillars = [
   {
     icon: Repeat,
     title: "Recurring-first",
-    desc: "We favor programs that keep paying — so a good recommendation compounds.",
+    desc: "We favor programs that keep paying, so a good recommendation compounds.",
   },
 ]
 
@@ -41,7 +41,7 @@ export function TrustSection() {
           </h2>
           <p className="mt-4 max-w-md text-body text-muted">
             {stats.recurring} of the {stats.total} tools in our catalog run verified recurring
-            affiliate programs. We surface that — plainly — on every card and tool page.
+            affiliate programs. We surface that, plainly, on every card and tool page.
           </p>
         </Reveal>
         <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
@@ -63,7 +63,7 @@ export function TrustSection() {
 
       <Reveal className="mt-14" delay={0.1}>
         <div className="overflow-hidden rounded-xl border border-line-subtle bg-sunken/60 py-4 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-          <div className="flex w-max animate-marquee items-center gap-10 pr-10">
+          <div className="marquee-track flex w-max animate-marquee items-center gap-10 pr-10 hover:[animation-play-state:paused] focus-within:[animation-play-state:paused]">
             {[...marquee, ...marquee].map((tool, i) => (
               <Link
                 key={`${tool.slug}-${i}`}
@@ -73,7 +73,7 @@ export function TrustSection() {
                 <span className="font-mono text-xs uppercase tracking-wider text-muted transition-colors group-hover:text-fg">
                   {tool.name}
                 </span>
-                <span className="rounded border border-accent/30 bg-accent-soft px-1.5 py-0.5 font-mono text-[0.625rem] text-accent">
+                <span className="rounded-full border border-accent/40 px-1.5 py-0.5 font-mono text-[0.625rem] text-accent tabular-nums">
                   {tool.affiliate.commission}
                 </span>
                 <span className="inline-flex items-center gap-1 font-mono text-[0.625rem] uppercase tracking-wider text-faint">
@@ -88,7 +88,7 @@ export function TrustSection() {
           </div>
         </div>
         <p className="mt-3 text-center font-mono text-[0.625rem] uppercase tracking-wider text-faint">
-          Top recurring affiliate programs in the catalog — hover to explore
+          Top recurring affiliate programs in the catalog: hover to explore
         </p>
       </Reveal>
     </section>

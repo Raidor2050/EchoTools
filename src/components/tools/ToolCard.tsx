@@ -2,58 +2,67 @@
 
 import Link from "next/link"
 import { motion } from "motion/react"
-import { ArrowUpRight, Plus, Check } from "lucide-react"
+import { Check, Plus } from "lucide-react"
+import type { ReactNode } from "react"
 import type { Tool } from "@/lib/types"
 import { cn, pricingLabel, toolHref } from "@/lib/utils"
+import { EASE_IN, EASE_OUT } from "@/lib/motion"
 import { useApp } from "@/components/providers/AppProviders"
 import { ToolLogo } from "./ToolLogo"
 import { AffiliateBadge } from "./AffiliateBadge"
 
+const badgeBase =
+  "inline-flex items-center rounded-full border border-line px-2.5 py-1 text-[0.6875rem] font-medium text-muted"
+
 /**
- * Product card. One primary affordance (Explore) plus a quiet compare
- * toggle. Rendered with layout animations so grids morph on layer
- * switches and filter changes.
+ * Product card. The whole card is one link; the only exception is the
+ * quiet compare toggle. Border-only, no shadow, no entrance animation
+ * (perf rule for the 80-card directory).
  */
 export function ToolCard({
   tool,
-  index = 0,
   showDescription = true,
   className,
 }: {
   tool: Tool
-  index?: number
   showDescription?: boolean
   className?: string
 }) {
   const { compare, toggleCompare } = useApp()
   const inCompare = compare.includes(tool.slug)
+  const price = pricingLabel(tool)
+
+  const badges: ReactNode[] = []
+  const pushBadge = (node: ReactNode) => {
+    if (badges.length < 2) badges.push(node)
+  }
+  if (tool.affiliate.available) pushBadge(<AffiliateBadge key="affiliate" tool={tool} />)
+  if (tool.api) pushBadge(<span key="api" className={badgeBase}>API</span>)
+  if (tool.ai) pushBadge(<span key="ai" className={badgeBase}>AI</span>)
 
   return (
     <motion.li
       layout
-      initial={{ opacity: 0, y: 20, scale: 0.98 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.92, transition: { duration: 0.18, ease: "easeIn" } }}
-      transition={{ duration: 0.4, delay: Math.min(index, 12) * 0.05, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -2 }}
+      exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.18, ease: EASE_IN } }}
+      transition={{ duration: 0.18, ease: EASE_OUT }}
       className={cn(
         "group relative flex flex-col rounded-xl border border-line-subtle bg-surface p-5 transition-colors duration-200",
-        "hover:border-line-strong hover:bg-raised",
+        "hover:border-line-strong",
         className
       )}
     >
       <div className="flex items-start justify-between gap-3">
-        <div className="flex items-center gap-3">
+        <div className="flex min-w-0 items-center gap-3">
           <ToolLogo slug={tool.slug} name={tool.name} type={tool.type} />
-          <div>
-            <h3 className="text-[0.95rem] font-medium tracking-tight text-fg">
-              <Link href={toolHref(tool.slug)} className="after:absolute after:inset-0 after:rounded-xl">
-                {tool.name}
-              </Link>
-            </h3>
-            <p className="font-mono text-[0.6875rem] uppercase tracking-wider text-faint">
-              {tool.useCase}
-            </p>
-          </div>
+          <h3 className="truncate text-[0.9375rem] font-semibold tracking-tight text-fg">
+            <Link
+              href={toolHref(tool.slug)}
+              className="after:absolute after:inset-0 after:rounded-xl after:content-['']"
+            >
+              {tool.name}
+            </Link>
+          </h3>
         </div>
         <button
           type="button"
@@ -61,7 +70,7 @@ export function ToolCard({
           aria-label={inCompare ? `Remove ${tool.name} from comparison` : `Add ${tool.name} to comparison`}
           onClick={() => toggleCompare(tool.slug)}
           className={cn(
-            "relative z-10 flex size-7 items-center justify-center rounded-md border transition-colors",
+            "relative z-10 flex size-7 shrink-0 items-center justify-center rounded-md border transition-colors",
             inCompare
               ? "border-accent/50 bg-accent-soft text-accent"
               : "border-line-subtle text-faint opacity-60 hover:border-line-strong hover:text-fg hover:opacity-100"
@@ -72,27 +81,31 @@ export function ToolCard({
       </div>
 
       {showDescription && (
-        <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-muted">{tool.description}</p>
+        <p className="mt-3 line-clamp-2 text-[0.8125rem] leading-relaxed text-muted">{tool.description}</p>
       )}
 
-      <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5">
-        <span className="font-mono text-xs font-medium text-accent">{pricingLabel(tool)}</span>
-        {tool.api && (
-          <span className="font-mono text-[0.625rem] uppercase tracking-wider text-faint">API</span>
-        )}
-        {tool.ai && (
-          <span className="font-mono text-[0.625rem] uppercase tracking-wider text-faint">AI</span>
-        )}
-        <AffiliateBadge tool={tool} />
+      <div className="mt-4 flex flex-wrap items-center gap-y-1 text-xs text-faint">
+        {[tool.useCase, ...tool.platforms.slice(0, 2)].map((item, i) => (
+          <span key={`${item}-${i}`} className="inline-flex items-center">
+            {i > 0 && (
+              <span className="mx-1.5 text-faint" aria-hidden>
+                ·
+              </span>
+            )}
+            {item}
+          </span>
+        ))}
       </div>
 
-      <div className="mt-4 flex items-center justify-between border-t border-line-subtle pt-3">
-        <span className="font-mono text-[0.625rem] uppercase tracking-wider text-faint">
-          {tool.platforms.slice(0, 2).join(" · ")}
-        </span>
-        <span className="relative z-10 inline-flex items-center gap-1 text-xs font-medium text-fg opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-          Explore tool
-          <ArrowUpRight className="size-3.5 text-accent" />
+      <div className="mt-4 flex items-center justify-between gap-3">
+        <div className="flex min-w-0 flex-wrap items-center gap-2">{badges}</div>
+        <span
+          className={cn(
+            "shrink-0 text-[0.8125rem] font-medium tabular-nums",
+            price === "Free" ? "text-muted" : "text-fg"
+          )}
+        >
+          {price}
         </span>
       </div>
     </motion.li>
