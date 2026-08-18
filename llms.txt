@@ -1,0 +1,41 @@
+# EchoTools
+
+> The software layer for humans and agents.
+
+EchoTools is an independent SaaS discovery directory. This file summarizes the catalog
+for LLMs and AI agents. Full details for each tool live at `/tools/<slug>`.
+
+## Human layer (software for people)
+
+Tools for marketing, CRM, productivity, design, finance, hosting, and AI assistance.
+
+- `/tools/hubspot` — CRM & marketing hub
+- `/tools/semrush` — SEO suite
+- `/tools/mailerlite` — email marketing
+- `/tools/notion` — notes & docs
+- `/tools/webflow` — web design & hosting
+- `/tools/vercel` — frontend deployment
+- `/tools/chatgpt` — AI assistant
+- ... see `/tools` for the full catalog.
+
+## Agent layer (software for AI agents)
+
+Frameworks, memory, scraping, vector data, browser agents, and observability.
+
+- `/tools/apify` — web scraping & automation
+- `/tools/firecrawl` — web scraping for AI
+- `/tools/supabase` — Postgres backend
+- `/tools/langchain` — agent framework
+- ... see `/tools` for the full catalog.
+
+## API summary
+
+- `GET /tools` — full catalog page
+- `GET /tools/<slug>` — individual tool page
+- `GET /categories/<slug>` — category landing pages
+- `GET /sitemap.xml` — sitemap
+
+## Editorial policy
+
+- Every tool is ranked on usefulness alone.
+- Pricing, features, and alternatives are verified and dated on each tool page.

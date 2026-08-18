@@ -1,0 +1,44 @@
+1:"$Sreact.fragment"
+2:I[33903,["/EchoTools/_next/static/chunks/0wqbg6_mf2_31.js","/EchoTools/_next/static/chunks/3r9ddenm4nbif.js","/EchoTools/_next/static/chunks/228uh26fdxjxv.js","/EchoTools/_next/static/chunks/2z19any97vyq_.js"],"Eyebrow"]
+3:I[22016,["/EchoTools/_next/static/chunks/0wqbg6_mf2_31.js","/EchoTools/_next/static/chunks/3r9ddenm4nbif.js","/EchoTools/_next/static/chunks/228uh26fdxjxv.js","/EchoTools/_next/static/chunks/2z19any97vyq_.js"],""]
+4:I[47087,["/EchoTools/_next/static/chunks/0wqbg6_mf2_31.js","/EchoTools/_next/static/chunks/3r9ddenm4nbif.js","/EchoTools/_next/static/chunks/228uh26fdxjxv.js","/EchoTools/_next/static/chunks/2z19any97vyq_.js"],"ToolCard"]
+5:I[97367,["/EchoTools/_next/static/chunks/0h2qsuyze9ds1.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+a:I[97367,["/EchoTools/_next/static/chunks/0h2qsuyze9ds1.js"],"ViewportBoundary"]
+b:I[97367,["/EchoTools/_next/static/chunks/0h2qsuyze9ds1.js"],"MetadataBoundary"]
+9:X
+21:X
+21:C
+0:{"buildId":"VueCl6TRAMZxMtecmZA5O","data":[{"rsc":["$","$1","c",{"children":[["$","div",null,{"children":[["$","div",null,{"className":"border-b border-line-subtle bg-sunken/40","children":["$","div",null,{"className":"mx-auto max-w-7xl px-4 py-12 sm:px-6","children":[["$","$L2",null,{"className":"mb-3","children":["Category · ","Agent layer"]}],["$","div",null,{"className":"flex flex-wrap items-end justify-between gap-4","children":[["$","div",null,{"children":[["$","h1",null,{"className":"text-hero font-semibold text-fg","children":"Multi-Agent Systems"}],["$","p",null,{"className":"mt-3 max-w-2xl text-body text-muted","children":"Coordinate many agents working together."}]]}],["$","$L3",null,{"href":"/tools?category=multi-agent&type=agent","className":"inline-flex items-center gap-1.5 rounded-lg border border-line-strong px-4 py-2 text-xs font-medium text-fg transition-colors hover:border-accent/50","children":"Open in directory"}]]}]]}]}],["$","div",null,{"className":"mx-auto max-w-7xl px-4 py-10 sm:px-6","children":[["$","p",null,{"className":"mb-6 font-mono text-[0.625rem] uppercase tracking-wider text-faint","children":[1," tools"]}],["$","ul",null,{"className":"grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4","children":[["$","$L4","langchain",{"tool":{"slug":"langchain","name":"LangChain","type":"agent","category":"agent-frameworks","categories":["agent-frameworks","model-tooling","multi-agent"],"description":"The most widely used framework for building LLM applications and agents, plus LangGraph orchestration.","useCase":"Build LLM apps and agent workflows","audience":"AI developers, startups, enterprises","website":"https://www.langchain.com","pricing":"Open source + cloud","freeTier":true,"plans":[{"name":"Open source","price":0,"per":"month","billing":"month"}],"features":["LangChain framework","LangGraph orchestration","LangSmith observability","LangMem","Huge ecosystem","100+ integrations"],"pros":["Largest ecosystem","LangGraph for stateful agents","Active community"],"cons":["API churn historically","Abstraction learning curve"],"integrations":["OpenAI","Anthropic","Hugging Face","Pinecone","LangSmith"],"platforms":["sdk","web"],"api":true,"ai":true,"affiliate":{"available":false,"recurring":null,"commission":null,"cookieDuration":null,"network":null,"signupUrl":null,"trackingUrl":null,"verified":false,"evidenceUrl":null},"competitors":["LlamaIndex","Vercel AI SDK","CrewAI","Semantic Kernel"],"alternatives":["LlamaIndex","Vercel AI SDK","CrewAI","Pydantic AI"],"tags":["agent framework","llm apps","orchestration","open source"],"useCases":["Build agent applications","Orchestrate multi-agent systems","RAG applications"],"confidence":"medium","verifiedAt":"2026-08-17","addedAt":"2026-08-17","flags":{"trending":true}}}]]}]]}]]}],[["$","script","script-0",{"src":"/EchoTools/_next/static/chunks/2z19any97vyq_.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$La",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0b0d12"}],["$","meta","3",{"name":"color-scheme","content":"dark"}]]}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Multi-Agent Systems Agent SaaS Tools — EchoTools"}],["$","meta","1",{"name":"description","content":"Coordinate many agents working together."}],["$","meta","2",{"name":"keywords","content":"SaaS directory,AI agent tools,human SaaS,agent SaaS,compare SaaS"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","meta","4",{"name":"googlebot","content":"index, follow, max-image-preview:large"}],["$","link","5",{"rel":"canonical","href":"https://raidor2050.github.io/EchoTools/categories/multi-agent/"}],["$","meta","6",{"property":"og:title","content":"EchoTools — The software layer for humans and agents."}],["$","meta","7",{"property":"og:description","content":"Discover, compare, and understand subscription SaaS for humans and AI agents."}],["$","meta","8",{"property":"og:url","content":"https://raidor2050.github.io/EchoTools/"}],"$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c"]}]}]}],"$L1d"]}],"isPartial":"$@1e","staleTime":"$9","varyParams":null},{"rsc":"$L1f","isPartial":"$@20","staleTime":"$9","varyParams":"$21"},{"rsc":"$L22","isPartial":"$@23","staleTime":"$9","varyParams":"$21"}],"isUpgradeableISRFallback":false,"a":"$@24","rootVaryParams":null,"needsRuntimeRequest":"$@25"}
+26:I[27201,["/EchoTools/_next/static/chunks/0h2qsuyze9ds1.js"],"IconMark"]
+27:I[39756,["/EchoTools/_next/static/chunks/0h2qsuyze9ds1.js"],"default"]
+28:I[37457,["/EchoTools/_next/static/chunks/0h2qsuyze9ds1.js"],"default"]
+7:null
+c:["$","meta","9",{"property":"og:site_name","content":"EchoTools"}]
+d:["$","meta","10",{"property":"og:image","content":"https://raidor2050.github.io/EchoTools/opengraph-image?5347b7542f56fde8"}]
+e:["$","meta","11",{"property":"og:image:type","content":"image/png"}]
+f:["$","meta","12",{"property":"og:image:width","content":"1200"}]
+10:["$","meta","13",{"property":"og:image:height","content":"630"}]
+11:["$","meta","14",{"property":"og:image:alt","content":"EchoTools — the software layer for humans and agents"}]
+12:["$","meta","15",{"property":"og:type","content":"website"}]
+13:["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}]
+14:["$","meta","17",{"name":"twitter:title","content":"EchoTools — The software layer for humans and agents."}]
+15:["$","meta","18",{"name":"twitter:description","content":"Discover, compare, and understand subscription SaaS for humans and AI agents."}]
+16:["$","meta","19",{"name":"twitter:image","content":"https://raidor2050.github.io/EchoTools/opengraph-image?5347b7542f56fde8"}]
+17:["$","meta","20",{"name":"twitter:image:alt","content":"EchoTools — the software layer for humans and agents"}]
+18:["$","meta","21",{"name":"twitter:image:type","content":"image/png"}]
+19:["$","meta","22",{"name":"twitter:image:width","content":"1200"}]
+1a:["$","meta","23",{"name":"twitter:image:height","content":"630"}]
+1b:["$","link","24",{"rel":"icon","href":"/EchoTools/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}]
+1c:["$","$L26","25",{}]
+1d:["$","meta",null,{"name":"next-size-adjust","content":""}]
+1f:["$","$1","c",{"children":[null,["$","$L27",null,{"parallelRouterKey":"children","template":["$","$L28",null,{}]}]]}]
+22:["$","$1","c",{"children":[null,["$","$L27",null,{"parallelRouterKey":"children","template":["$","$L28",null,{}]}]]}]
+25:true
+9:300
+9:C
+24:0
+1e:"$undefined"
+20:"$undefined"
+23:"$undefined"
+8:"$undefined"

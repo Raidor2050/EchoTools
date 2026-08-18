@@ -1,0 +1,45 @@
+1:"$Sreact.fragment"
+2:I[33903,["/EchoTools/_next/static/chunks/0wqbg6_mf2_31.js","/EchoTools/_next/static/chunks/3r9ddenm4nbif.js","/EchoTools/_next/static/chunks/228uh26fdxjxv.js","/EchoTools/_next/static/chunks/2z19any97vyq_.js"],"Eyebrow"]
+3:I[22016,["/EchoTools/_next/static/chunks/0wqbg6_mf2_31.js","/EchoTools/_next/static/chunks/3r9ddenm4nbif.js","/EchoTools/_next/static/chunks/228uh26fdxjxv.js","/EchoTools/_next/static/chunks/2z19any97vyq_.js"],""]
+4:I[47087,["/EchoTools/_next/static/chunks/0wqbg6_mf2_31.js","/EchoTools/_next/static/chunks/3r9ddenm4nbif.js","/EchoTools/_next/static/chunks/228uh26fdxjxv.js","/EchoTools/_next/static/chunks/2z19any97vyq_.js"],"ToolCard"]
+5:I[97367,["/EchoTools/_next/static/chunks/0h2qsuyze9ds1.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+a:I[97367,["/EchoTools/_next/static/chunks/0h2qsuyze9ds1.js"],"ViewportBoundary"]
+b:I[97367,["/EchoTools/_next/static/chunks/0h2qsuyze9ds1.js"],"MetadataBoundary"]
+9:X
+22:X
+22:C
+0:{"buildId":"VueCl6TRAMZxMtecmZA5O","data":[{"rsc":["$","$1","c",{"children":[["$","div",null,{"children":[["$","div",null,{"className":"border-b border-line-subtle bg-sunken/40","children":["$","div",null,{"className":"mx-auto max-w-7xl px-4 py-12 sm:px-6","children":[["$","$L2",null,{"className":"mb-3","children":["Category · ","Human layer"]}],["$","div",null,{"className":"flex flex-wrap items-end justify-between gap-4","children":[["$","div",null,{"children":[["$","h1",null,{"className":"text-hero font-semibold text-fg","children":"Analytics"}],["$","p",null,{"className":"mt-3 max-w-2xl text-body text-muted","children":"Understand product, web, and customer behavior."}]]}],["$","$L3",null,{"href":"/tools?category=analytics&type=human","className":"inline-flex items-center gap-1.5 rounded-lg border border-line-strong px-4 py-2 text-xs font-medium text-fg transition-colors hover:border-accent/50","children":"Open in directory"}]]}]]}]}],["$","div",null,{"className":"mx-auto max-w-7xl px-4 py-10 sm:px-6","children":[["$","p",null,{"className":"mb-6 font-mono text-[0.625rem] uppercase tracking-wider text-faint","children":[1," tools"]}],["$","ul",null,{"className":"grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4","children":[["$","$L4","hotjar",{"tool":{"slug":"hotjar","name":"Hotjar","type":"human","category":"analytics","categories":["analytics","productivity","development"],"description":"Behavior analytics with heatmaps, recordings and surveys; merging into Contentsquare.","useCase":"Understand user behavior and UX friction","audience":"Product and UX teams","website":"https://www.hotjar.com","pricing":"Freemium subscription","freeTier":true,"plans":[{"name":"Basic","price":0,"per":"month","billing":"month"},{"name":"Plus","price":39,"per":"month","billing":"month"},{"name":"Business","price":99,"per":"month","billing":"month"}],"features":["Heatmaps","Session recordings","Surveys","Feedback widgets","Funnels","Engage research"],"pros":["Fast time to insight","Free tier"],"cons":["Merging into Contentsquare (roadmap risk)","Not a full analytics platform"],"integrations":["Google Analytics","Zapier","Slack","Intercom"],"platforms":["web"],"api":true,"ai":true,"affiliate":{"available":true,"recurring":true,"commission":"15-25% recurring","cookieDuration":null,"network":"PartnerStack","signupUrl":"https://www.hotjar.com/partners/","trackingUrl":null,"verified":true,"evidenceUrl":"https://help.hotjar.com/hc/en-us/articles/36820042225553-Hotjar-Partner-Program"},"competitors":["Fullstory","Lucky Orange","Microsoft Clarity","Crazy Egg"],"alternatives":["Microsoft Clarity","Lucky Orange","Fullstory","Crazy Egg"],"tags":["analytics","heatmaps","ux research"],"useCases":["See how users click","Watch session replays","Collect on-page feedback"],"confidence":"high","verifiedAt":"2026-08-17","addedAt":"2026-08-17","flags":{"bestValue":true}}}]]}]]}]]}],[["$","script","script-0",{"src":"/EchoTools/_next/static/chunks/2z19any97vyq_.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$La",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0b0d12"}],["$","meta","3",{"name":"color-scheme","content":"dark"}]]}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Analytics Human SaaS Tools — EchoTools"}],["$","meta","1",{"name":"description","content":"Understand product, web, and customer behavior."}],["$","meta","2",{"name":"keywords","content":"SaaS directory,AI agent tools,human SaaS,agent SaaS,compare SaaS"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","meta","4",{"name":"googlebot","content":"index, follow, max-image-preview:large"}],["$","link","5",{"rel":"canonical","href":"https://raidor2050.github.io/EchoTools/categories/analytics/"}],["$","meta","6",{"property":"og:title","content":"EchoTools — The software layer for humans and agents."}],["$","meta","7",{"property":"og:description","content":"Discover, compare, and understand subscription SaaS for humans and AI agents."}],"$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d"]}]}]}],"$L1e"]}],"isPartial":"$@1f","staleTime":"$9","varyParams":null},{"rsc":"$L20","isPartial":"$@21","staleTime":"$9","varyParams":"$22"},{"rsc":"$L23","isPartial":"$@24","staleTime":"$9","varyParams":"$22"}],"isUpgradeableISRFallback":false,"a":"$@25","rootVaryParams":null,"needsRuntimeRequest":"$@26"}
+27:I[27201,["/EchoTools/_next/static/chunks/0h2qsuyze9ds1.js"],"IconMark"]
+28:I[39756,["/EchoTools/_next/static/chunks/0h2qsuyze9ds1.js"],"default"]
+29:I[37457,["/EchoTools/_next/static/chunks/0h2qsuyze9ds1.js"],"default"]
+7:null
+c:["$","meta","8",{"property":"og:url","content":"https://raidor2050.github.io/EchoTools/"}]
+d:["$","meta","9",{"property":"og:site_name","content":"EchoTools"}]
+e:["$","meta","10",{"property":"og:image","content":"https://raidor2050.github.io/EchoTools/opengraph-image?5347b7542f56fde8"}]
+f:["$","meta","11",{"property":"og:image:type","content":"image/png"}]
+10:["$","meta","12",{"property":"og:image:width","content":"1200"}]
+11:["$","meta","13",{"property":"og:image:height","content":"630"}]
+12:["$","meta","14",{"property":"og:image:alt","content":"EchoTools — the software layer for humans and agents"}]
+13:["$","meta","15",{"property":"og:type","content":"website"}]
+14:["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}]
+15:["$","meta","17",{"name":"twitter:title","content":"EchoTools — The software layer for humans and agents."}]
+16:["$","meta","18",{"name":"twitter:description","content":"Discover, compare, and understand subscription SaaS for humans and AI agents."}]
+17:["$","meta","19",{"name":"twitter:image","content":"https://raidor2050.github.io/EchoTools/opengraph-image?5347b7542f56fde8"}]
+18:["$","meta","20",{"name":"twitter:image:alt","content":"EchoTools — the software layer for humans and agents"}]
+19:["$","meta","21",{"name":"twitter:image:type","content":"image/png"}]
+1a:["$","meta","22",{"name":"twitter:image:width","content":"1200"}]
+1b:["$","meta","23",{"name":"twitter:image:height","content":"630"}]
+1c:["$","link","24",{"rel":"icon","href":"/EchoTools/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}]
+1d:["$","$L27","25",{}]
+1e:["$","meta",null,{"name":"next-size-adjust","content":""}]
+20:["$","$1","c",{"children":[null,["$","$L28",null,{"parallelRouterKey":"children","template":["$","$L29",null,{}]}]]}]
+23:["$","$1","c",{"children":[null,["$","$L28",null,{"parallelRouterKey":"children","template":["$","$L29",null,{}]}]]}]
+26:true
+9:300
+9:C
+25:0
+1f:"$undefined"
+21:"$undefined"
+24:"$undefined"
+8:"$undefined"

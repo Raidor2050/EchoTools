@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://raidor2050.github.io/EchoTools/sitemap.xml
