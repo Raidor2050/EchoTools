@@ -49,14 +49,6 @@ export function layerLabel(type: Tool["type"]): string {
   return type === "human" ? "Human layer" : "Agent layer"
 }
 
-export function affiliateLabel(tool: Tool): string | null {
-  const a = tool.affiliate
-  if (!a.available) return null
-  if (a.recurring === true) return "Recurring commission"
-  if (a.recurring === false) return "One-time commission"
-  return "Affiliate program"
-}
-
 export function sortTools(tools: Tool[], sort: string): Tool[] {
   const arr = [...tools]
   switch (sort) {
@@ -68,12 +60,6 @@ export function sortTools(tools: Tool[], sort: string): Tool[] {
       return arr.sort((a, b) => minPrice(b) - minPrice(a))
     case "newest":
       return arr.sort((a, b) => b.addedAt.localeCompare(a.addedAt))
-    case "affiliate":
-      return arr.sort((a, b) => {
-        const ra = a.affiliate.recurring === true ? 1 : 0
-        const rb = b.affiliate.recurring === true ? 1 : 0
-        return rb - ra || Number(b.affiliate.available) - Number(a.affiliate.available)
-      })
     case "featured":
     default:
       return arr.sort(

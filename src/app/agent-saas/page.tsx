@@ -15,7 +15,7 @@ export default function AgentSaaSPage() {
       tools={toolsByType("agent")}
       title="Agent SaaS"
       eyebrow="Layer two · Agent"
-      description="Twelve tools that power autonomous AI: frameworks, memory, extraction, vector data, and observability. Curated for agents — with every affiliate relationship disclosed."
+      description="Twelve tools that power autonomous AI: frameworks, memory, extraction, vector data, and observability. Curated for agents."
     />
   )
 }

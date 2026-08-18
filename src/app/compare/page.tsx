@@ -6,7 +6,7 @@ import { siteMetadata } from "@/lib/seo"
 export const metadata: Metadata = siteMetadata({
   title: "Compare tools — EchoTools",
   description:
-    "Compare software for humans and agents side by side: pricing, API access, integrations, and disclosed affiliate economics.",
+    "Compare software for humans and agents side by side: pricing, API access, integrations, and fit.",
 })
 
 export default function ComparePage() {

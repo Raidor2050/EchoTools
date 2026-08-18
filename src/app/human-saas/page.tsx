@@ -15,7 +15,7 @@ export default function HumanSaaSPage() {
       tools={toolsByType("human")}
       title="Human SaaS"
       eyebrow="Layer one · Human"
-      description="Sixty-eight tools across marketing, work, dev, design, and finance. Curated for humans who ship — with every affiliate relationship disclosed."
+      description="Sixty-eight tools across marketing, work, dev, design, and finance. Curated for humans who ship."
     />
   )
 }

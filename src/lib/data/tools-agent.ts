@@ -1,11 +1,8 @@
 import { t } from "./helpers"
 
 /**
- * Agent SaaS seed catalog. Affiliate statuses here reflect the current
- * research state: no public affiliate programs were found for these
- * products (verified where evidence exists). They are listed because
- * they are the tools agents and agent-builders actually use — a useful
- * directory doesn't stop at monetizable entries.
+ * Agent SaaS seed catalog. These are the tools agents and agent-builders
+ * actually use — a useful directory doesn't stop at monetizable entries.
  */
 export const toolsAgent: ReturnType<typeof t>[] = [
   t({
@@ -15,7 +12,7 @@ export const toolsAgent: ReturnType<typeof t>[] = [
     category: "web-scraping",
     categories: ["web-scraping", "agent-apis", "agent-infrastructure"],
     description: "Cloud platform for web scraping, browser automation, and AI agent data workflows.",
-    long: "Apify is the workhorse of web data for AI: 6,000+ pre-built Actors scrape anything, headless browsers automate anything, and every Actor exposes an API an agent can call. It also runs a genuinely strong verified affiliate program — 20% for the first 3 months then 30% recurring, capped at $2,500 per customer — making it the flagship monetizable agent-infra entry.",
+    long: "Apify is the workhorse of web data for AI: 6,000+ pre-built Actors scrape anything, headless browsers automate anything, and every Actor exposes an API an agent can call.",
     useCase: "Scraping, automation, AI data pipelines",
     audience: "Developers, data teams, automation builders",
     website: "https://apify.com",
@@ -23,7 +20,7 @@ export const toolsAgent: ReturnType<typeof t>[] = [
     freeTier: true,
     plans: [["Free", 0, "month", "month"], ["Starter", 49, "month", "month"], ["Scale", 99, "month", "month"], ["Business", 299, "month", "month"]],
     features: ["6,000+ pre-built Actors", "Headless browsers", "Proxies", "Scheduled runs", "Actor marketplace", "Agent-ready data APIs"],
-    pros: ["30% recurring affiliate (no time cap)", "Huge Actor marketplace", "Agent-first APIs"],
+    pros: ["Huge Actor marketplace", "Agent-first APIs"],
     cons: ["Usage costs add up fast", "Learning curve for custom Actors"],
     integrations: ["Playwright", "Puppeteer", "Python/JS SDKs", "Webhooks"],
     platforms: ["web", "api"],
@@ -53,7 +50,7 @@ export const toolsAgent: ReturnType<typeof t>[] = [
     category: "web-scraping",
     categories: ["web-scraping", "agent-apis", "agent-infrastructure"],
     description: "Web scraping API turning websites into clean markdown/structured data for LLMs and agents.",
-    long: "Firecrawl is the modern agent's web-to-data layer: one API that scrapes, crawls, searches, and extracts clean markdown or structured JSON from any site, with MCP support so agents can call it natively. Its verified affiliate program pays 25% for the first 12 months then 15% ongoing — rare longevity in agent infrastructure.",
+    long: "Firecrawl is the modern agent's web-to-data layer: one API that scrapes, crawls, searches, and extracts clean markdown or structured JSON from any site, with MCP support so agents can call it natively.",
     useCase: "Scrape and extract web data for AI",
     audience: "AI developers, agent builders, startups",
     website: "https://www.firecrawl.dev",
@@ -61,7 +58,7 @@ export const toolsAgent: ReturnType<typeof t>[] = [
     freeTier: true,
     plans: [["Free", 0, "month", "month"], ["Hobby", 19, "month", "month"], ["Standard", 59, "month", "month"], ["Growth", 299, "month", "month"]],
     features: ["Scrape/crawl/search APIs", "Markdown output", "LLM extraction", "Deep research", "MCP support", "No-code playground"],
-    pros: ["25%→15% recurring affiliate", "Agent-native (MCP)", "Clean markdown output"],
+    pros: ["Agent-native (MCP)", "Clean markdown output"],
     cons: ["Credits-based pricing", "Young company vs incumbents"],
     integrations: ["MCP", "Python/JS SDKs", "LangChain", "Zapier"],
     platforms: ["api", "web"],
@@ -99,7 +96,7 @@ export const toolsAgent: ReturnType<typeof t>[] = [
     plans: [["Free", 0, "month", "month"], ["Pro", 25, "month", "month"], ["Team", 75, "month", "month"]],
     features: ["Managed Postgres", "pgvector", "Auth", "Storage", "Edge functions", "Realtime"],
     pros: ["Generous free tier", "pgvector built in", "Huge dev community"],
-    cons: ["No affiliate program (community is unpaid)", "Egress pricing"],
+    cons: ["Egress pricing"],
     integrations: ["Auth", "Storage", "Edge Functions", "pgvector"],
     platforms: ["web", "api"],
     api: true,
@@ -126,7 +123,7 @@ export const toolsAgent: ReturnType<typeof t>[] = [
     plans: [["Free", 0, "month", "month"], ["Pro", 19, "month", "month"]],
     features: ["Serverless Postgres", "Branching", "Autoscaling", "pgvector", "Storage tiers", "Preview branches"],
     pros: ["Branching for dev workflows", "Autoscale to zero", "pgvector for AI"],
-    cons: ["No affiliate program found", "Cold starts possible"],
+    cons: ["Cold starts possible"],
     integrations: ["Vercel", "GitHub", "Prisma", "Drizzle"],
     platforms: ["web", "api"],
     api: true,
@@ -153,7 +150,7 @@ export const toolsAgent: ReturnType<typeof t>[] = [
     plans: [["Free", 0, "month", "month"]],
     features: ["Serverless vector DB", "RAG pipeline tooling", "Hybrid search", "Namespaces", "Sparse-dense retrieval", "High performance"],
     pros: ["Managed, zero-ops", "Industry benchmark", "Free tier for experimentation"],
-    cons: ["No affiliate program found", "Costs scale with usage"],
+    cons: ["Costs scale with usage"],
     integrations: ["LangChain", "LlamaIndex", "OpenAI", "Hugging Face"],
     platforms: ["api"],
     api: true,
@@ -179,7 +176,7 @@ export const toolsAgent: ReturnType<typeof t>[] = [
     plans: [["Free (sandbox)", 0, "month", "month"]],
     features: ["Hybrid search (BM25 + vector)", "Generative retrieval", "Multi-tenancy", "Modules for embedding models", "Open source"],
     pros: ["Self-host or cloud", "Hybrid search quality", "Open source"],
-    cons: ["No affiliate program found", "Ops complexity if self-hosted"],
+    cons: ["Ops complexity if self-hosted"],
     integrations: ["LangChain", "LlamaIndex", "OpenAI", "Cohere"],
     platforms: ["api", "self-hosted"],
     api: true,
@@ -205,7 +202,7 @@ export const toolsAgent: ReturnType<typeof t>[] = [
     plans: [["Free", 0, "month", "month"]],
     features: ["Vector + payload filtering", "Rust performance", "Qdrant Cloud or self-hosted", "Binary quantization", "Snapshotting", "Distributed"],
     pros: ["Filtering is best-in-class", "Fast + open source", "Simple API"],
-    cons: ["No affiliate program found", "Advanced features need enterprise"],
+    cons: ["Advanced features need enterprise"],
     integrations: ["LangChain", "LlamaIndex", "Haystack", "FastEmbed"],
     platforms: ["api", "self-hosted"],
     api: true,
@@ -231,7 +228,7 @@ export const toolsAgent: ReturnType<typeof t>[] = [
     plans: [["Free", 0, "month", "month"]],
     features: ["Long-term memory APIs", "Multi-agent memory", "Graph + vector memory", "Open source", "Platform SDKs"],
     pros: ["Purpose-built for agent memory", "Open source", "Quick integration"],
-    cons: ["No affiliate program found", "Young product category"],
+    cons: ["Young product category"],
     integrations: ["LangChain", "OpenAI", "Claude", "LlamaIndex"],
     platforms: ["api", "self-hosted"],
     api: true,
@@ -258,7 +255,7 @@ export const toolsAgent: ReturnType<typeof t>[] = [
     plans: [["Free", 0, "month", "month"]],
     features: ["Long-term memory", "Temporal knowledge graphs", "Automatic summaries", "Entity extraction", "Graphiti framework", "Open source core"],
     pros: ["Graph-based memory is differentiated", "Open source Graphiti", "Built for agents"],
-    cons: ["No affiliate program found", "Infrastructure maturity varies"],
+    cons: ["Infrastructure maturity varies"],
     integrations: ["LangChain", "OpenAI", "Claude", "Temporal"],
     platforms: ["api", "self-hosted"],
     api: true,
@@ -285,7 +282,7 @@ export const toolsAgent: ReturnType<typeof t>[] = [
     plans: [],
     features: ["Cloud headless browsers", "Session recording", "Live debugging", "Proxy + CAPTCHA handling", "Session persistence", "SDKs for agents"],
     pros: ["Purpose-built for agents", "Observability built in", "Scales on demand"],
-    cons: ["No affiliate program found", "Usage-based cost per session"],
+    cons: ["Usage-based cost per session"],
     integrations: ["Playwright", "Puppeteer", "Stagehand", "OpenAI/Claude"],
     platforms: ["api"],
     api: true,
@@ -312,7 +309,7 @@ export const toolsAgent: ReturnType<typeof t>[] = [
     plans: [["Free (Hobby)", 0, "month", "month"], ["Pro", 49, "month", "month"]],
     features: ["LLM tracing", "Prompt management", "Evaluations", "Analytics", "Open source", "Cost tracking"],
     pros: ["Open source standard", "Self-hostable", "Deep tracing"],
-    cons: ["No affiliate program found", "Self-hosting adds ops"],
+    cons: ["Self-hosting adds ops"],
     integrations: ["OpenAI", "LangChain", "Vercel AI SDK", "LiteLLM"],
     platforms: ["web", "api", "self-hosted"],
     api: true,
@@ -339,7 +336,7 @@ export const toolsAgent: ReturnType<typeof t>[] = [
     plans: [["Open source", 0, "month", "month"]],
     features: ["LangChain framework", "LangGraph orchestration", "LangSmith observability", "LangMem", "Huge ecosystem", "100+ integrations"],
     pros: ["Largest ecosystem", "LangGraph for stateful agents", "Active community"],
-    cons: ["No affiliate program", "API churn historically", "Abstraction learning curve"],
+    cons: ["API churn historically", "Abstraction learning curve"],
     integrations: ["OpenAI", "Anthropic", "Hugging Face", "Pinecone", "LangSmith"],
     platforms: ["sdk", "web"],
     api: true,

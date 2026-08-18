@@ -18,7 +18,7 @@ export function AlternativesRow({ tool }: { tool: Tool }) {
       <SectionHeader
         eyebrow="Alternatives"
         title={`Similar tools to ${tool.name}`}
-        description="Compared on usefulness first: affiliate economics are always disclosed, never decisive."
+        description="Compared on usefulness first: pricing, features, and fit."
       />
       <motion.ul
         variants={stagger}

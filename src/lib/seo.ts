@@ -19,15 +19,13 @@ export function siteMetadata(overrides?: Partial<Metadata>): Metadata {
       template: `%s — ${SITE_NAME}`,
     },
     description:
-      "Discover, compare, and understand subscription SaaS for humans and AI agents. Verified pricing, affiliate programs, and alternatives — without the affiliate spam.",
+      "Discover, compare, and understand subscription SaaS for humans and AI agents. Verified pricing, features, and alternatives.",
     keywords: [
       "SaaS directory",
       "AI agent tools",
       "human SaaS",
       "agent SaaS",
       "compare SaaS",
-      "SaaS affiliate programs",
-      "recurring commissions",
     ],
     openGraph: {
       type: "website",
@@ -57,11 +55,7 @@ export function toolMetadata(tool: Tool): Metadata {
   const category = getCategory(tool.category)
   return {
     title: `${tool.name} — Pricing, Features & Alternatives`,
-    description: `${tool.description} Compare ${tool.name}'s pricing, features, and alternatives. ${
-      tool.affiliate.available
-        ? `Affiliate program: ${tool.affiliate.commission ?? "available"} (${tool.affiliate.network ?? "unknown network"}).`
-        : ""
-    }`,
+    description: `${tool.description} Compare ${tool.name}'s pricing, features, and alternatives.`,
     keywords: [
       tool.name,
       category?.name ?? tool.category,

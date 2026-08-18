@@ -7,7 +7,7 @@ import { allTools } from "@/lib/data"
 export const metadata: Metadata = siteMetadata({
   title: "Directory — EchoTools",
   description:
-    "Browse and compare software for humans and AI agents. Search by use case, filter by layer and category, and see which vendors run recurring affiliate programs.",
+    "Browse and compare software for humans and AI agents. Search by use case, filter by layer and category, and compare pricing, features, and fit.",
 })
 
 export default function DirectoryPage() {

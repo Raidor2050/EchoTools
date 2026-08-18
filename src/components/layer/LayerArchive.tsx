@@ -13,7 +13,6 @@ const sorts = [
   { value: "featured", label: "Featured" },
   { value: "newest", label: "Newest" },
   { value: "name", label: "Name A–Z" },
-  { value: "affiliate", label: "Recurring affiliate" },
 ]
 
 export function LayerArchive({

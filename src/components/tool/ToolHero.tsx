@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "motion/react"
-import { ArrowUpRight, Check, Plus, Scale } from "lucide-react"
+import { ArrowUpRight, Check, Plus } from "lucide-react"
 import type { Tool } from "@/lib/types"
 import { cn, layerLabel, pricingLabel } from "@/lib/utils"
 import { useApp } from "@/components/providers/AppProviders"
@@ -73,9 +73,6 @@ export function ToolHero({ tool }: { tool: Tool }) {
               {tool.api && <Chip tone="accent">API</Chip>}
               {tool.ai && <Chip tone="accent">AI</Chip>}
               {tool.plans.some((p) => p.price === 0) && <Chip>Free tier</Chip>}
-              {tool.affiliate.available && tool.affiliate.recurring === true && (
-                <Chip tone="success">Recurring affiliate</Chip>
-              )}
             </div>
 
             <p className="mt-6 text-body text-muted">
@@ -125,14 +122,6 @@ export function ToolHero({ tool }: { tool: Tool }) {
                   {inCompare ? "In comparison" : "Add to compare"}
                 </button>
               </div>
-
-              {tool.affiliate.available && (
-                <p className="mt-4 flex items-start gap-2 text-xs leading-relaxed text-faint">
-                  <Scale className="mt-0.5 size-3.5 shrink-0" aria-hidden />
-                  This link may earn EchoTools a commission. It never affects how {tool.name} is
-                  ranked or reviewed.
-                </p>
-              )}
             </div>
           </motion.div>
         </div>

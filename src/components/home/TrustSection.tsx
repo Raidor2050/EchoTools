@@ -1,34 +1,31 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowUpRight, ShieldCheck, Eye, Repeat } from "lucide-react"
-import { recurringTools, catalogStats } from "@/lib/data"
-import { byAffiliateStrength } from "@/lib/data/helpers"
+import { ArrowUpRight, BadgeCheck, ShieldCheck, SlidersHorizontal } from "lucide-react"
+import { editorPicks, catalogStats } from "@/lib/data"
 import { Eyebrow, Reveal } from "@/components/ui/primitives"
 
 const pillars = [
   {
-    icon: Eye,
+    icon: SlidersHorizontal,
     title: "Ranked on usefulness",
     desc: "No paid placements, no sponsored slots. Editorial signal decides what you see.",
   },
   {
-    icon: ShieldCheck,
-    title: "Economics disclosed",
-    desc: "Affiliate terms live separately from rankings and are shown on every tool page.",
+    icon: BadgeCheck,
+    title: "Verified & dated",
+    desc: "Pricing, features, and alternatives are checked against the vendor and stamped with a date.",
   },
   {
-    icon: Repeat,
-    title: "Recurring-first",
-    desc: "We favor programs that keep paying, so a good recommendation compounds.",
+    icon: ShieldCheck,
+    title: "Independent by design",
+    desc: "Rankings are editorial. What you see is what we would pick ourselves.",
   },
 ]
 
 export function TrustSection() {
   const stats = catalogStats()
-  const marquee = [...recurringTools()]
-    .sort(byAffiliateStrength)
-    .slice(0, 10)
+  const marquee = [...editorPicks("human"), ...editorPicks("agent")].slice(0, 10)
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6" aria-label="Why trust EchoTools">
@@ -37,11 +34,11 @@ export function TrustSection() {
           <Eyebrow className="mb-4">Independent by design</Eyebrow>
           <h2 className="text-h2 text-fg">
             Reviews humans trust,{" "}
-            <span className="serif-accent text-accent">economics</span> agents can verify.
+            <span className="serif-accent text-accent">signals</span> agents can verify.
           </h2>
           <p className="mt-4 max-w-md text-body text-muted">
-            {stats.recurring} of the {stats.total} tools in our catalog run verified recurring
-            affiliate programs. We surface that, plainly, on every card and tool page.
+            {stats.total} tools across {stats.human} human and {stats.agent} agent picks, each
+            one evaluated on usefulness alone.
           </p>
         </Reveal>
         <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
@@ -73,11 +70,11 @@ export function TrustSection() {
                 <span className="font-mono text-xs uppercase tracking-wider text-muted transition-colors group-hover:text-fg">
                   {tool.name}
                 </span>
-                <span className="rounded-full border border-accent/40 px-1.5 py-0.5 font-mono text-[0.625rem] text-accent tabular-nums">
-                  {tool.affiliate.commission}
+                <span className="rounded-full border border-line px-1.5 py-0.5 font-mono text-[0.625rem] uppercase tracking-wider text-faint tabular-nums">
+                  {tool.category}
                 </span>
                 <span className="inline-flex items-center gap-1 font-mono text-[0.625rem] uppercase tracking-wider text-faint">
-                  recurring
+                  editor&apos;s pick
                   <ArrowUpRight className="size-3 opacity-0 transition-opacity group-hover:opacity-100" />
                 </span>
                 <span className="text-faint" aria-hidden>
@@ -88,7 +85,7 @@ export function TrustSection() {
           </div>
         </div>
         <p className="mt-3 text-center font-mono text-[0.625rem] uppercase tracking-wider text-faint">
-          Top recurring affiliate programs in the catalog: hover to explore
+          Editor&apos;s picks across both layers: hover to explore
         </p>
       </Reveal>
     </section>

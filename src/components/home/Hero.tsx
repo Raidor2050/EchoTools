@@ -97,7 +97,7 @@ export function Hero() {
             <dd className="mt-1 text-metric font-semibold text-fg tabular-nums">{stats.total} tools</dd>
           </div>
           <div className="bg-surface px-4 py-5">
-            <dt className="font-mono text-[0.625rem] uppercase tracking-wider text-faint">Layers</dt>
+            <dt className="font-mono text-[0.625rem] uppercase tracking-wider text-faint">Independence</dt>
             <dd className="mt-1 text-metric font-semibold text-fg">
               <span className="text-human">H</span>
               <span className="text-agent">A</span>
@@ -108,9 +108,9 @@ export function Hero() {
             <dd className="mt-1 text-metric font-semibold text-fg tabular-nums">{stats.categories}</dd>
           </div>
           <div className="bg-surface px-4 py-5">
-            <dt className="font-mono text-[0.625rem] uppercase tracking-wider text-faint">Recurring %</dt>
+            <dt className="font-mono text-[0.625rem] uppercase tracking-wider text-faint">Verified</dt>
             <dd className="mt-1 text-metric font-semibold text-fg tabular-nums">
-              {Math.round((stats.recurring / stats.total) * 100)}%
+              {stats.total} tools
             </dd>
           </div>
         </motion.dl>
@@ -123,7 +123,7 @@ export function Hero() {
             <SlidersHorizontal className="size-3.5" aria-hidden /> Independent ratings
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <span className="size-1.5 rounded-full bg-accent animate-pulse-dot" aria-hidden /> Commissions disclosed
+            <span className="size-1.5 rounded-full bg-accent animate-pulse-dot" aria-hidden /> Verified & dated
           </span>
           <span className="inline-flex items-center gap-1.5">Built for agents too: llms.txt ready</span>
         </motion.div>

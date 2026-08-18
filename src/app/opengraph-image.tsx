@@ -53,7 +53,7 @@ export default function OpengraphImage() {
             for humans and agents.
           </div>
           <div style={{ display: "flex", fontSize: 30, color: "#a3a8b3" }}>
-            80 tools · 32 categories · recurring commissions disclosed
+            80 tools · 32 categories · independent & verified
           </div>
         </div>
         <div

@@ -31,14 +31,14 @@ function ToolGrid({ tools, cols = "3" }: { tools: Tool[]; cols?: "3" | "4" }) {
 
 const sectionCopy = {
   human: {
-    trending: { title: "Trending for humans", desc: "What teams are adopting right now: ranked by editorial signal, never by affiliate terms." },
+    trending: { title: "Trending for humans", desc: "What teams are adopting right now, ranked by editorial signal." },
     picks: { title: "Editor's picks", desc: "The handful we'd pay for ourselves." },
-    value: { title: "Best-value recurring picks", desc: "Tools whose affiliate programs pay you long after the trial ends." },
+    value: { title: "Best value picks", desc: "Tools that earn their subscription the moment you start." },
   },
   agent: {
-    trending: { title: "Trending for agents", desc: "The infrastructure agents actually run on: ranked by editorial signal, never by affiliate terms." },
+    trending: { title: "Trending for agents", desc: "The infrastructure agents actually run on, ranked by editorial signal." },
     picks: { title: "Editor's picks", desc: "The stack we'd build an agent on." },
-    value: { title: "Best-value recurring picks", desc: "Agent infrastructure with affiliate programs that keep paying." },
+    value: { title: "Best value picks", desc: "Agent infrastructure that earns its keep from day one." },
   },
 }
 

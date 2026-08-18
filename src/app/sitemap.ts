@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: absoluteUrl("/human-saas"), lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: absoluteUrl("/agent-saas"), lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: absoluteUrl("/compare"), lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: absoluteUrl("/disclosure"), lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ]
 
   const toolPages: MetadataRoute.Sitemap = allTools.map((tool) => ({

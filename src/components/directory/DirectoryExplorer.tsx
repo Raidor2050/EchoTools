@@ -18,7 +18,6 @@ const sorts = [
   { value: "name", label: "Name A–Z" },
   { value: "price-asc", label: "Price ↑" },
   { value: "price-desc", label: "Price ↓" },
-  { value: "affiliate", label: "Recurring affiliate" },
 ]
 
 const layerTabs: Array<{ value: Layer | "all"; label: string }> = [
@@ -127,7 +126,7 @@ export function DirectoryExplorer() {
             </motion.h1>
             <motion.p variants={listItem} className="mt-4 max-w-2xl text-body text-muted">
               Search the full catalog, filter by layer and category, sort by what matters —
-              and see exactly which vendors pay recurring commissions.
+              and compare pricing, features, and fit.
             </motion.p>
 
             <motion.div variants={listItem} className="mt-6 flex flex-col gap-4">

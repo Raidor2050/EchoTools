@@ -2,17 +2,16 @@
 
 **The software layer for humans and agents.**
 
-EchoTools is an independent, affiliate-first SaaS discovery directory. The
+EchoTools is an independent SaaS discovery directory. The
 defining interaction is a HUMAN ↔ AGENT layer switch: one catalog, two
-audiences — and every affiliate relationship disclosed on every card.
-Dark, OKLCH-tinted interface; the accent re-tunes between amber (Human)
-and violet (Agent) when you switch layers.
+audiences. Dark, OKLCH-tinted interface; the accent re-tunes between amber
+(Human) and violet (Agent) when you switch layers.
 
 ## What's inside
 
 - **80 curated tools** (68 human, 12 agent) across 32 categories
 - **Layer switch** — the whole interface re-tunes its accent (amber ↔ violet) when you flip between Human and Agent
-- **Affiliate honesty by design** — economics stored separately from rankings; every tool page shows commission structure, cookie window, network, and verification date
+- **Independent rankings** — every tool is evaluated on usefulness alone; pricing, features, and alternatives are verified and dated
 - **Compare up to 4 tools** side by side, differences-only mode
 - **⌘K command palette**, URL-state search/filter/sort, mobile-first
 - **llms.txt** for AI agents, full JSON-LD (website/breadcrumb/tool schemas), sitemap, robots, branded OG image
@@ -38,15 +37,11 @@ npm run lint
 NEXT_PUBLIC_SITE_URL=https://your-domain.com   # default: https://echotools.dev
 ```
 
-## Monetization & trust
+## Editorial policy
 
-EchoTools earns via affiliate links, and says so plainly:
-
-- Rankings are editorial; affiliate economics live in a separate data field.
-- Unverified programs are labeled **unverified** — never assumed.
-- Affiliate links carry `rel="nofollow sponsored"`; tools without programs
-  are listed and linked identically.
-- Full policy: `/disclosure` · agent-readable summary: `/llms.txt`.
+- Rankings are editorial and independent.
+- Pricing, features, and alternatives are verified and dated on each tool page.
+- Agent-readable summary: `/llms.txt`.
 
 ## Project layout
 

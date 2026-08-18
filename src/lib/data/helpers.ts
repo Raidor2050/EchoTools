@@ -96,7 +96,7 @@ export function t(input: ToolInput): Tool {
   }
 }
 
-/** Recruiting-safe sort: verified recurring programs first, then verified programs. */
+/** Recruiting-safe sort: strongest verified programs first. */
 export function byAffiliateStrength(a: Tool, b: Tool): number {
   const score = (x: Tool) => {
     if (!x.affiliate.available) return 0

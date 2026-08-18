@@ -9,7 +9,6 @@ import { cn, pricingLabel, toolHref } from "@/lib/utils"
 import { EASE_IN, EASE_OUT } from "@/lib/motion"
 import { useApp } from "@/components/providers/AppProviders"
 import { ToolLogo } from "./ToolLogo"
-import { AffiliateBadge } from "./AffiliateBadge"
 
 const badgeBase =
   "inline-flex items-center rounded-full border border-line px-2.5 py-1 text-[0.6875rem] font-medium text-muted"
@@ -36,7 +35,6 @@ export function ToolCard({
   const pushBadge = (node: ReactNode) => {
     if (badges.length < 2) badges.push(node)
   }
-  if (tool.affiliate.available) pushBadge(<AffiliateBadge key="affiliate" tool={tool} />)
   if (tool.api) pushBadge(<span key="api" className={badgeBase}>API</span>)
   if (tool.ai) pushBadge(<span key="ai" className={badgeBase}>AI</span>)
 

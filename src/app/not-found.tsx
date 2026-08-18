@@ -9,8 +9,8 @@ export default function NotFound() {
         <span className="serif-accent text-accent">other layer</span>.
       </h1>
       <p className="max-w-md text-body text-muted">
-        The tool or page you are looking for doesn&apos;t exist — or was retired like Figma&apos;s
-        affiliate program. Try the directory instead.
+        The tool or page you are looking for doesn&apos;t exist — or drifted to the other
+        layer. Try the directory instead.
       </p>
       <div className="flex gap-3">
         <Link

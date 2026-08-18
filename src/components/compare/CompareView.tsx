@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation"
 import { AnimatePresence, motion } from "motion/react"
 import { ArrowUpRight, Check, Minus, SlidersHorizontal, X } from "lucide-react"
 import { allTools, getTool } from "@/lib/data"
-import { cn, fmtPrice, layerLabel, pricingLabel } from "@/lib/utils"
+import { fmtPrice, layerLabel, pricingLabel } from "@/lib/utils"
 import { useApp } from "@/components/providers/AppProviders"
 import { ToolLogo } from "@/components/tools/ToolLogo"
 import { Eyebrow } from "@/components/ui/primitives"
@@ -53,19 +53,6 @@ const rows: Row[] = [
   { key: "ai", label: "AI features", render: (t) => <Bool value={t.ai} /> },
   { key: "platforms", label: "Platforms", render: (t) => <span className="text-xs text-muted">{t.platforms.join(", ")}</span> },
   { key: "integrations", label: "Integrations", render: (t) => <span className="text-sm font-medium tabular-nums text-fg">{t.integrations.length}</span> },
-  {
-    key: "affiliate",
-    label: "Affiliate",
-    render: (t) =>
-      t.affiliate.available ? (
-        <span className={cn("font-mono text-xs uppercase tracking-wider", t.affiliate.recurring === true ? "text-accent" : "text-muted")}>
-          {t.affiliate.recurring === true ? "Recurring" : t.affiliate.recurring === false ? "One-time" : "Unknown"}
-          {t.affiliate.commission ? ` · ${t.affiliate.commission}` : ""}
-        </span>
-      ) : (
-        <span className="font-mono text-xs uppercase tracking-wider text-faint">None</span>
-      ),
-  },
   { key: "tags", label: "Tags", render: (t) => <span className="text-xs text-faint">{t.tags.slice(0, 3).join(", ")}</span> },
 ]
 
@@ -210,10 +197,8 @@ export function CompareView() {
       <motion.div variants={fadeUp} className="mt-6 rounded-xl border border-line bg-surface p-5">
         <p className="eyebrow mb-2 text-accent">Verdict</p>
         <p className="text-sm leading-relaxed text-muted">
-          {tools.filter((t) => t.affiliate.available && t.affiliate.recurring === true).length} of{" "}
-          {tools.length} tools run recurring affiliate programs — disclosed in the table above.
-          Rankings here are neutral: pick on price, API access, and fit, and treat affiliate
-          economics as a bonus, not a factor.
+          Pick on price, API access, integrations, and fit. Every tool here is evaluated on
+          usefulness alone.
         </p>
         {allTools.length > 0 && (
           <p className="mt-3 font-mono text-[0.625rem] uppercase tracking-wider text-faint tabular-nums">

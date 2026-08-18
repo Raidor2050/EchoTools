@@ -18,7 +18,7 @@ export function Footer() {
             <Logo />
             <p className="max-w-xs text-sm leading-relaxed text-muted">
               The software layer for humans and agents. Independent, verified, and useful
-              first, affiliate revenue second.
+              first.
             </p>
           </div>
 
@@ -55,20 +55,12 @@ export function Footer() {
           </nav>
 
           <div>
-            <p className="eyebrow mb-4 font-semibold">Trust & disclosure</p>
+            <p className="eyebrow mb-4 font-semibold">Editorial</p>
             <p className="text-xs leading-relaxed text-faint">
-              EchoTools may earn commissions when you subscribe through links on this site.
-              Commissions never influence rankings — every tool is listed and evaluated on
-              usefulness, with affiliate economics stored separately and disclosed on each
-              tool page.
+              Every tool is listed and evaluated on usefulness alone. Pricing, features, and
+              alternatives are verified and dated.
             </p>
             <div className="mt-4 flex gap-4">
-              <Link
-                href="/disclosure"
-                className="text-xs text-muted underline-offset-4 hover:text-accent hover:underline"
-              >
-                Affiliate disclosure
-              </Link>
               <Link
                 href="/llms.txt"
                 className="text-xs text-muted underline-offset-4 hover:text-accent hover:underline"

@@ -4,7 +4,6 @@ import { allTools, getTool } from "@/lib/data"
 import { jsonLdSafe } from "@/lib/utils"
 import { breadcrumbJsonLd, toolJsonLd, toolMetadata } from "@/lib/seo"
 import { ToolHero } from "@/components/tool/ToolHero"
-import { AffiliateCard } from "@/components/tool/AffiliateCard"
 import { PricingBlock, ProsCons, FeaturesGrid } from "@/components/tool/blocks"
 import { AlternativesRow } from "@/components/tool/AlternativesRow"
 
@@ -52,7 +51,6 @@ export default async function ToolPage({ params }: PageProps) {
           <ProsCons tool={tool} />
         </div>
         <div className="space-y-6">
-          <AffiliateCard tool={tool} />
           <div className="rounded-xl border border-line-subtle bg-surface p-5">
             <h2 className="text-sm font-semibold text-fg">Also worth noting</h2>
             <ul className="mt-3 space-y-2 text-sm text-muted">
