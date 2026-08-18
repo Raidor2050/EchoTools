@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/*
+ * EchoTools design tokens — dark-first, OKLCH, hue-parameterized accents.
+ * Human layer = amber hue (85), Agent layer = violet hue (295).
+ * The accent hue is transitionable via @property registration so the
+ * entire interface can "re-tune" when the layer switches.
+ */
+
+@property --accent-h {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 85;
+}
+@property --accent-l {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 78%;
+}
+@property --accent-c {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0.14;
+}
+
+:root {
+  --bg: oklch(13.5% 0.012 255);
+  --surface: oklch(16.5% 0.014 255);
+  --raised: oklch(19.5% 0.016 255);
+  --overlay: oklch(22% 0.018 255);
+  --sunken: oklch(11.5% 0.008 255);
+  --fg: oklch(93% 0.006 255);
+  --muted: oklch(71% 0.01 255);
+  --faint: oklch(60% 0.012 255);
+  --disabled: oklch(44% 0.008 255);
+  --line-subtle: oklch(24% 0.01 255);
+  --line: oklch(28% 0.012 255);
+  --line-strong: oklch(36% 0.015 255);
+  --accent-h: 85;
+  --accent-l: 78%;
+  --accent-c: 0.14;
+  --accent-soft: oklch(20% 0.05 85);
+}
+
+[data-layer="agent"] {
+  --accent-h: 295;
+  --accent-l: 72%;
+  --accent-c: 0.19;
+  --accent-soft: oklch(20% 0.06 295);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-overlay: var(--overlay);
+  --color-sunken: var(--sunken);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-disabled: var(--disabled);
+  --color-line-subtle: var(--line-subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: oklch(var(--accent-l) var(--accent-c) var(--accent-h));
+  --color-accent-strong: oklch(calc(var(--accent-l) - 6%) var(--accent-c) var(--accent-h));
+  --color-accent-soft: var(--accent-soft);
+  --color-human: oklch(78% 0.14 85);
+  --color-agent: oklch(72% 0.19 295);
+
+  --font-sans: var(--font-geist);
+  --font-serif: var(--font-instrument);
+  --font-mono: var(--font-geist-mono);
+
+  --text-display: clamp(2.75rem, 1.5rem + 4.5vw, 4.75rem);
+  --text-display--line-height: 1.03;
+  --text-display--letter-spacing: -0.03em;
+  --text-hero: clamp(2rem, 1.25rem + 2.5vw, 3rem);
+  --text-hero--line-height: 1.08;
+  --text-hero--letter-spacing: -0.025em;
+  --text-h2: clamp(1.5rem, 1.125rem + 1.5vw, 2.25rem);
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h3: clamp(1.125rem, 1rem + 0.4vw, 1.375rem);
+  --text-h3--line-height: 1.3;
+  --text-h3--letter-spacing: -0.01em;
+  --text-body: clamp(0.9375rem, 0.875rem + 0.25vw, 1.0625rem);
+  --text-body--line-height: 1.6;
+  --text-metric: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --text-metric--line-height: 1.1;
+  --text-metric--letter-spacing: -0.01em;
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.08em;
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-pulse-dot: pulse-dot 2.4s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: oklch(var(--accent-l) var(--accent-c) var(--accent-h) / 0.28);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--bg),
+    0 0 0 4px oklch(var(--accent-l) var(--accent-c) var(--accent-h));
+  border-radius: 2px;
+}
+
+/* Layer-tinted scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+/* The whole page re-tunes when the layer accent changes */
+.layer-accent {
+  transition:
+    --accent-h 500ms ease,
+    --accent-l 500ms ease,
+    --accent-c 500ms ease;
+}
+
+.noise::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hairline {
+  border: 1px solid var(--line-subtle);
+}
+
+.hairline-b {
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.glow-accent {
+  box-shadow:
+    0 0 0 1px oklch(var(--accent-l) var(--accent-c) var(--accent-h) / 0.35),
+    0 0 24px -6px oklch(var(--accent-l) var(--accent-c) var(--accent-h) / 0.45);
+}
+
+/* Editorial serif accent */
+.serif-accent {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

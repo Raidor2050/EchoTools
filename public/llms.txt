@@ -1,0 +1,43 @@
+# EchoTools
+
+> The software layer for humans and agents.
+
+EchoTools is an independent SaaS discovery directory. This file summarizes the catalog
+for LLMs and AI agents. Full details for each tool live at `/tools/<slug>`.
+
+## Human layer (software for people)
+
+Tools for marketing, CRM, productivity, design, finance, hosting, and AI assistance.
+Every listing discloses affiliate economics; rankings are independent of them.
+
+- `/tools/hubspot` — CRM & marketing hub (affiliate: 30% recurring, 12 mo)
+- `/tools/semrush` — SEO suite (40% recurring, 12 mo)
+- `/tools/mailerlite` — email marketing (30% lifetime recurring)
+- `/tools/notion` — notes & docs (no affiliate program)
+- `/tools/webflow` — web design & hosting (50% recurring, 12 mo)
+- `/tools/vercel` — frontend deployment (no affiliate program)
+- `/tools/chatgpt` — AI assistant (no affiliate program)
+- ... see `/tools` for the full catalog.
+
+## Agent layer (software for AI agents)
+
+Frameworks, memory, scraping, vector data, browser agents, and observability.
+
+- `/tools/apify` — web scraping & automation (20% → 30% recurring)
+- `/tools/firecrawl` — web scraping for AI (25% → 15% recurring)
+- `/tools/supabase` — Postgres backend (no affiliate program found)
+- `/tools/langchain` — agent framework (no affiliate program found)
+- ... see `/tools` for the full catalog.
+
+## API summary
+
+- `GET /tools` — full catalog page
+- `GET /tools/<slug>` — individual tool page
+- `GET /categories/<slug>` — category landing pages
+- `GET /sitemap.xml` — sitemap
+
+## Trust
+
+- Affiliate programs are verified, dated, and linked to evidence on each tool page.
+- Unverified programs are labeled unverified — never assumed.
+- Full policy: `/disclosure`.
