@@ -2,9 +2,10 @@
 
 import { AnimatePresence, motion } from "motion/react"
 import Link from "next/link"
-import { ArrowRight, Search, SlidersHorizontal } from "lucide-react"
+import { ArrowRight, SlidersHorizontal } from "lucide-react"
 import { useApp } from "@/components/providers/AppProviders"
 import { LayerToggle } from "./LayerToggle"
+import { HeroSearch } from "./HeroSearch"
 import { catalogStats } from "@/lib/data"
 
 const copy = {
@@ -66,18 +67,9 @@ export function Hero() {
         </div>
 
         <div className="mx-auto mt-10 flex max-w-xl flex-col items-stretch gap-3 sm:flex-row">
-          <form action="/tools" role="search" className="flex-1">
-            <div className="flex items-center gap-3 rounded-xl border border-line-strong bg-surface px-4 py-3 transition-colors focus-within:border-accent/60">
-              <Search className="size-4 shrink-0 text-faint" aria-hidden />
-              <input
-                name="q"
-                type="search"
-                placeholder="Try “email automation”, “vector db”, “screen recorder”…"
-                className="w-full bg-transparent text-sm text-fg outline-none placeholder:text-faint"
-                aria-label="Search the directory"
-              />
-            </div>
-          </form>
+          <div className="flex-1">
+            <HeroSearch />
+          </div>
           <Link
             href="/tools"
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-fg px-6 py-3 text-sm font-semibold text-bg transition-opacity hover:opacity-90"
