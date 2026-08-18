@@ -3,6 +3,8 @@ import { allTools } from "@/lib/data"
 import { categories } from "@/lib/categories"
 import { absoluteUrl } from "@/lib/seo"
 
+export const dynamic = "force-static"
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
